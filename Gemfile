@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 #Avatar upload
-gem 'paperclip', '~> 2.7'
+gem 'paperclip', '~> 4.2'
 #OmniAuth capabilities
 gem 'omniauth'
 #OmniAuth for Twitter
