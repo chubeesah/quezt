@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   delete '/users/:id', to: 'users#destroy', as: 'destroy_user'
 
   post 'users/:id/polls', to: 'polls#create', as: 'new_poll'
+  get 'users/:id/polls', to: 'polls#index', as: 'polls'
   get 'users/:id/polls/:id', to: 'polls#show', as: 'poll'
   delete 'users/:id/polls/:id', to: 'polls#destroy', as: 'destroy_poll'
 
