@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321004840) do
+ActiveRecord::Schema.define(version: 20150321140541) do
 
   create_table "polls", force: :cascade do |t|
     t.integer  "user_id"
@@ -26,6 +26,10 @@ ActiveRecord::Schema.define(version: 20150321004840) do
     t.string   "photo_post_content_type"
     t.integer  "photo_post_file_size"
     t.datetime "photo_post_updated_at"
+    t.string   "answer_1"
+    t.string   "answer_2"
+    t.string   "answer_3"
+    t.string   "answer_4"
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150321004840) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "authentication_token"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
