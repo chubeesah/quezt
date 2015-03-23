@@ -3,7 +3,7 @@ class SessionsController < Devise::SessionsController
 
   # Devise::PasswordsController
   def create
-    @user = User.find_or_create_from_auth_hash(auth_hash)
+    @user = warden.authenticate(auth_options)
     if self.current_user = @user
       render :create, status: :ok
     else
