@@ -46,7 +46,7 @@ cancel_user_registration GET    /users/cancel(.:format)        registrations#can
 
 ```json
 "user": {
-  "id": number
+  "id": 1
   "username": "username",
   "email": "something@somewhere.com",
   "password": "password"
@@ -111,7 +111,6 @@ signs a user out. Does not return any response
 ```json
 {
 "poll": {
-        "id": number,
         "question": "How do I look?",
         "photo": "/some/photo/file",
         "answer_1": "Good",
@@ -130,7 +129,7 @@ a user can add a poll
 ```json
 {
 "poll": {
-        "id": number,
+        "id": 1,
         "question": "How do I look?",
         "photo": "/some/photo/file/on/amazon/aws/s3/website",
         "answer_1": "Good",
@@ -152,7 +151,7 @@ a user can add a poll
 
 ```json
 {
-    "auth_token": "mNJ6-zeUKTXbi6cVWyaj"
+    "auth_token": "XXXxxXxxXXxxXxxXXXx"
 }
 ```
 
@@ -164,7 +163,7 @@ returns a specific poll for a user
 ```json
 {
 "poll": {
-      "id": number,
+      "id": 1,
       "question": "How do I look?",
       "photo": "/some/photo/file/on/amazon/aws/s3/website",
       "answer_1": "Good",
@@ -186,7 +185,7 @@ returns a specific poll for a user
 
 ```json
 {
-    "auth_token": "mNJ6-zeUKTXbi6cVWyaj"
+    "auth_token": "XXXxxXxxXXxxXxxXXXx"
 }
 ```
 
@@ -199,7 +198,7 @@ shows a user's list of polls...
 {
     "polls": [
            {
-      "id": number,
+      "id": 1,
       "question": "How do I look?",
       "photo": "/some/photo/file/on/amazon/aws/s3/website",
       "answer_1": "Good",
@@ -212,7 +211,7 @@ shows a user's list of polls...
       "vote_4": null
   }
  {
-      "id": number,
+      "id": 2,
       "question": "How's the weather?",
       "photo": "/some/photo/file/on/amazon/aws/s3/website",
       "answer_1": "Clear",
@@ -225,7 +224,7 @@ shows a user's list of polls...
       "vote_4": null
   }
  {
-      "id": number,
+      "id": 3,
       "question": "What color should I pick?",
       "photo": "/some/photo/file/on/amazon/aws/s3/website",
       "answer_1": "Green",
@@ -249,7 +248,7 @@ shows a user's list of polls...
 
 ```json
 {
-    "auth_token": "mNJ6-zeUKTXbi6cVWyaj"
+    "auth_token": "XXXxxXxxXXxxXxxXXXx"
 }
 ```
 
