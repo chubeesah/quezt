@@ -4,7 +4,7 @@ class SessionsController < Devise::SessionsController
   # Devise::PasswordsController
   def create
     @user = User.find_or_create_from_auth_hash(auth_hash)
-    self.current_user = @user
+    if self.current_user = @user
       render :create, status: :ok
     else
       render json: { error: "Authentication Failed!" }, status: :unauthenticated
