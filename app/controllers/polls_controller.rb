@@ -1,6 +1,9 @@
 class PollsController < ApplicationController
-  before_action :authenticate_user_from_token!
-  
+  before_action :set_poll, only: [:show, :edit, :destroy]
+  before_action :set_user
+  before_action :authenticate_user_from_token!,except: [:show, :index]
+  before_action :redirect_unless_user_match, :except => [:show, :index]
+
   def create
     @user = current_user
     @poll = @user.polls.new(poll_params)
@@ -8,6 +11,15 @@ class PollsController < ApplicationController
       render :create, status: :created
     else
       render json: { :error => "Problem creating poll"}, status: :bad_request
+    end
+  end
+
+  def update
+    @poll = current_user.polls.find(params[:id])
+    if @poll.update(poll_params)
+      render :edit, status: :ok
+    else
+      render json: { :error => "There was an error"}, status: :bad_request
     end
   end
 
@@ -42,6 +54,14 @@ class PollsController < ApplicationController
   end
 
   private
+
+  def set_poll
+    @poll = Poll.find(params[:id])
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
   
   def poll_params
     params.require(:poll).permit(:question, :photo_post, :answer_1, 

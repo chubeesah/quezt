@@ -46,7 +46,6 @@ cancel_user_registration GET    /users/cancel(.:format)        registrations#can
 
 ```json
 "user": {
-  "id": 1
   "username": "username",
   "email": "something@somewhere.com",
   "password": "password"
