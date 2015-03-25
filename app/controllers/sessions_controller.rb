@@ -12,7 +12,7 @@ class SessionsController < Devise::SessionsController
   end
 
   protected
-  
+
   def auth_hash
     request.env['omniauth.auth']
   end
