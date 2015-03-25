@@ -75,7 +75,7 @@ creates a user, returns a success message and the following...
 
 ```json
 "user": {
-     "email": "something@somewhere.com",
+     "username": "username",
      "password": "password",
 }
 ```
