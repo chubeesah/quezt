@@ -4,7 +4,7 @@ class SessionsController < Devise::SessionsController
   # Devise::PasswordsController
   def create
     @user = warden.authenticate(auth_options)
-    if self.current_user = @user
+    if @user
       render :create, status: :ok
     else
       render json: { error: "Authentication Failed!" }, status: :unauthenticated
