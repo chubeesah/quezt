@@ -60,6 +60,7 @@ creates a user, returns a success message and the following...
 ```json
 {
 "user": {
+     "id": 1
      "username": "username",
      "email": "something@somewhere.com",
      "authentication_token": "XXXxxXxxXXxxXxxXXXx"
