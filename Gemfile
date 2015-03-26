@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 #Avatar upload
 gem 'paperclip', '~> 4.2'
 gem 'aws-sdk', '< 2.0'
+#Map system for nearby polls
+gem 'geocoder'
 #OmniAuth capabilities
 gem 'omniauth'
 #OmniAuth for Twitter

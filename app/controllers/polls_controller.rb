@@ -51,6 +51,11 @@ class PollsController < ApplicationController
     end 
   end
 
+  def nearby_polls
+    @polls = Poll.all
+    @polls.near([params[:latitude], params[:longitude]], 50)
+  end
+
   private
 
   def set_poll

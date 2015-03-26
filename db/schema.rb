@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150321140541) do
+ActiveRecord::Schema.define(version: 20150326220009) do
 
   create_table "polls", force: :cascade do |t|
     t.integer  "user_id"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20150321140541) do
     t.string   "answer_2"
     t.string   "answer_3"
     t.string   "answer_4"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "users", force: :cascade do |t|

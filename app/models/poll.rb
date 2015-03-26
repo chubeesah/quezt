@@ -4,4 +4,6 @@ class Poll < ActiveRecord::Base
                                               :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :photo_post, :content_type => /\Aimage\/.*\Z/
 
+  reverse_geocoded_by :latitude, :longitude
+  after_validation :reverse_geocode
 end
