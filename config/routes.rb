@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get 'users/:id/polls', to: 'polls#index', as: 'polls'
   get 'users/:id/polls/:id', to: 'polls#show', as: 'poll'
   delete 'users/:id/polls/:id', to: 'polls#destroy', as: 'destroy_poll'
-
+  
+  get 'polls', to: 'polls#nearby_polls', as: 'nearby_polls'
+  
   root to: 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

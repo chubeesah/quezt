@@ -1,6 +1,6 @@
 json.polls do
     json.array! @polls do 
-        json.id @polls.id
+        json.username @user.username
         json.question @polls.question
         json.photo @polls.photo_post
         json.answer_1 @polls.answer_1

@@ -17,7 +17,7 @@ class PollsController < ApplicationController
     if @poll.update(poll_params)
       render :edit, status: :ok
     else
-      render json: { :error => "There was an error"}, status: :bad_request
+      render json: { :error => @poll.errors.full_messages }, status: :bad_request
     end
   end
 
@@ -53,7 +53,12 @@ class PollsController < ApplicationController
 
   def nearby_polls
     @polls = Poll.all
-    @polls.near([params[:latitude], params[:longitude]], 50)
+    @radius = @polls.near([params[:latitude], params[:longitude]], 50)
+    if @radius
+      render :nearby_polls
+    else
+      render json: { :error => @poll.errors.full_messages }, status: :not_found
+    end
   end
 
   private
@@ -65,7 +70,6 @@ class PollsController < ApplicationController
   def poll_params
     params.require(:poll).permit(:question, :photo_post, :answer_1, 
                                  :answer_2, :answer_3, :answer_4, :vote_1, 
-                                 :vote_2, :vote_3, :vote_4)
-                                 
+                                 :vote_2, :vote_3, :vote_4, :latitude, :longitude)                            
   end
 end
