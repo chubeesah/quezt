@@ -1,8 +1,6 @@
 class PollsController < ApplicationController
   before_action :set_poll, only: [:show, :edit, :destroy]
-  before_action :set_user
-  before_action :authenticate_user_from_token!,except: [:show, :index]
-  before_action :redirect_unless_user_match, :except => [:show, :index]
+  before_action :authenticate_user_from_token!
 
   def create
     @user = current_user
@@ -57,10 +55,6 @@ class PollsController < ApplicationController
 
   def set_poll
     @poll = Poll.find(params[:id])
-  end
-
-  def set_user
-    @user = User.find(params[:user_id])
   end
   
   def poll_params
