@@ -22,8 +22,7 @@ class PollsController < ApplicationController
   end
 
   def index
-    @user = current_user
-    @polls = @user.polls.all
+    @polls = current_user.polls.all
     if @polls
       render :index, status: :ok
     else
