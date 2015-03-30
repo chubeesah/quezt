@@ -1,6 +1,6 @@
 json.polls do
     json.array! @polls do |polls| 
-        json.username current_user.username
+        json.user_id polls.user_id
         json.question polls.question
         json.photo polls.photo_post
         json.answer_1 polls.answer_1
@@ -11,5 +11,7 @@ json.polls do
         json.vote_2 polls.vote_2
         json.vote_3 polls.vote_3
         json.vote_4 polls.vote_4
+        json.latitude polls.latitude
+        json.longitude polls.longitude
     end
 end

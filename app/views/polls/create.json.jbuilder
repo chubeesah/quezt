@@ -10,4 +10,6 @@ json.poll do
     json.vote_2 @poll.vote_2
     json.vote_3 @poll.vote_3
     json.vote_4 @poll.vote_4
+    json.latitude @poll.latitude
+    json.longitude @poll.longitude
 end

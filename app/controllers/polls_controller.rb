@@ -1,5 +1,4 @@
 class PollsController < ApplicationController
-  before_action :set_poll, only: [:show, :edit, :destroy]
   before_action :authenticate_user_from_token!
 
   def create
@@ -22,12 +21,13 @@ class PollsController < ApplicationController
   end
 
   def index
-    @polls = current_user.polls.all
-    if @polls
-      render :index, status: :ok
+    @polls = Poll.all
+    @radius = @polls.near([params[:latitude], params[:longitude]], 50)
+    if @radius
+      render :index
     else
-      render json: { :error => "Unable to find all polls" }, status: :not_found
-    end 
+      render json: { :error => @poll.errors.full_messages }, status: :not_found
+    end
   end
 
   def show
@@ -69,6 +69,6 @@ class PollsController < ApplicationController
   def poll_params
     params.require(:poll).permit(:question, :photo_post, :answer_1, 
                                  :answer_2, :answer_3, :answer_4, :vote_1, 
-                                 :vote_2, :vote_3, :vote_4)                            
+                                 :vote_2, :vote_3, :vote_4, :latitude, :longitude)                            
   end
 end
