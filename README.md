@@ -130,6 +130,7 @@ a user can add a poll
 {
 "poll": {
         "id": 1,
+        "username": null,
         "question": "How do I look?",
         "photo": "/some/photo/file/on/amazon/aws/s3/website",
         "answer_1": "Good",
@@ -164,6 +165,7 @@ returns a specific poll for a user
 {
 "poll": {
       "id": 1,
+      "username": null,
       "question": "How do I look?",
       "photo": "/some/photo/file/on/amazon/aws/s3/website",
       "answer_1": "Good",
@@ -192,13 +194,14 @@ returns a specific poll for a user
 ####Response
 `200 OK`
 
-shows a user's list of polls...
+shows a list of all polls...
 
 ```json
 {
     "polls": [
            {
       "id": 1,
+      "username": null,
       "question": "How do I look?",
       "photo": "/some/photo/file/on/amazon/aws/s3/website",
       "answer_1": "Good",
@@ -212,6 +215,7 @@ shows a user's list of polls...
   }
  {
       "id": 2,
+      "username": null,
       "question": "How's the weather?",
       "photo": "/some/photo/file/on/amazon/aws/s3/website",
       "answer_1": "Clear",
@@ -225,6 +229,7 @@ shows a user's list of polls...
   }
  {
       "id": 3,
+      "username": null,
       "question": "What color should I pick?",
       "photo": "/some/photo/file/on/amazon/aws/s3/website",
       "answer_1": "Green",

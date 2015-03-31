@@ -1,6 +1,7 @@
 
 json.poll do 
-    json.username @user.id
+    json.user_id @poll.id
+    json.username @poll.username
     json.question @poll.question
     json.photo @poll.photo_post
     json.answer_1 @poll.answer_1
