@@ -269,6 +269,8 @@ user deletes a specific poll
 ```
 a user can vote on a poll
 
+`PUT /users/:id/polls/:id`
+
 ```json
 {
 "poll": {
