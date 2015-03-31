@@ -21,7 +21,6 @@ class PollsController < ApplicationController
   end
 
   def index
-    @user = User.find(params[:id])
     @polls = Poll.all
     @radius = @polls.near([params[:latitude], params[:longitude]], 50)
     if @radius
