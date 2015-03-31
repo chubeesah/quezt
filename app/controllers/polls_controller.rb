@@ -67,7 +67,7 @@ class PollsController < ApplicationController
   end
   
   def poll_params
-    params.require(:poll).permit(:question, :photo_post, :answer_1, 
+    params.require(:poll).permit(:username, :question, :photo_post, :answer_1, 
                                  :answer_2, :answer_3, :answer_4, :vote_1, 
                                  :vote_2, :vote_3, :vote_4, :latitude, :longitude)                            
   end
