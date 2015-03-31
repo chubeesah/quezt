@@ -11,9 +11,10 @@ class PollsController < ApplicationController
     end
   end
 
-  def update
-    @poll = current_user.polls.find(params[:id])
+  def vote
+    @poll = Poll.find(params[:id])
     if @poll.update(poll_params)
+      @poll.vote_for(@poll)
       render :edit, status: :ok
     else
       render json: { :error => @poll.errors.full_messages }, status: :bad_request
