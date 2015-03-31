@@ -277,6 +277,7 @@ user deletes a specific poll
 {
 "poll": {
         "id": 1,
+        "user_id": 1
         "username": null,
         "question": "How do I look?",
         "photo": "/some/photo/file/on/amazon/aws/s3/website",
