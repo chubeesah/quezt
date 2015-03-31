@@ -10,6 +10,10 @@ class User < ActiveRecord::Base
   
   has_many :polls
 
+  def to_param
+    username || user_id
+  end
+
   def ensure_authentication_token
     if authentication_token.blank?
       self.authentication_token = generate_authentication_token
