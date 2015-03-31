@@ -267,7 +267,9 @@ user deletes a specific poll
     "message": "Poll successfully deleted"
 }
 ```
-a user can vote on a poll
+##**allows a user to delete a poll**
+
+####Request
 
 `PUT /users/:id/polls/:id`
 
