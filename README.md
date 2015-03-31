@@ -276,19 +276,10 @@ user deletes a specific poll
 ```json
 {
 "poll": {
-        "id": 1,
-        "user_id": 1
-        "username": null,
-        "question": "How do I look?",
-        "photo": "/some/photo/file/on/amazon/aws/s3/website",
         "answer_1": "Good",
         "answer_2": "Okay",
         "answer_3": "Seen better",
         "answer_4": "BAD!",
-        "vote_1": 0,
-        "vote_2": 0,
-        "vote_3": 0,
-        "vote_4": 0
     }
 }
 ```
