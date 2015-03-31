@@ -1,4 +1,3 @@
-
 json.poll do 
     json.id @poll.id
     json.user_id @poll.user_id

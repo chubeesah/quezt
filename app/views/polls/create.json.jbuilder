@@ -1,4 +1,5 @@
 json.poll do 
+    json.id @poll.id
     json.username @poll.username
     json.question @poll.question
     json.photo @poll.photo_post

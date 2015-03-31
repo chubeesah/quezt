@@ -1,5 +1,6 @@
 json.polls do
     json.array! @polls do |polls| 
+        json.id polls.id
         json.user_id polls.user_id
         json.username polls.username
         json.question polls.question
