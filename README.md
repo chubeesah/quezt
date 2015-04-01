@@ -267,7 +267,7 @@ user deletes a specific poll
     "message": "Poll successfully deleted"
 }
 ```
-##**allows a user to delete a poll**
+##**allows a user to vote on a poll**
 
 ####Request
 
