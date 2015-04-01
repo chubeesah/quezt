@@ -290,6 +290,7 @@ user deletes a specific poll
 {
 "poll": {
         "id": 1,
+        "user_id": 1
         "username": null,
         "vote_1": 1,(if /vote1)
         "vote_2": 1,(if /vote2)
