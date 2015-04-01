@@ -11,10 +11,42 @@ class PollsController < ApplicationController
     end
   end
 
-  def vote
+  def vote1
     @poll = Poll.find(params[:id])
     if @poll
-      @poll.vote_for(@poll)
+      @poll.vote_for_1(@poll)
+      render :vote, status: :ok
+    else
+      render json: { :error => @poll.errors.full_messages }, status: :bad_request
+    end
+  end
+
+  def vote2
+    @poll = Poll.find(params[:id])
+    if @poll
+      @poll.vote_for_2(@poll)
+      @poll.update(poll_params)
+      render :vote, status: :ok
+    else
+      render json: { :error => @poll.errors.full_messages }, status: :bad_request
+    end
+  end
+
+  def vote3
+    @poll = Poll.find(params[:id])
+    if @poll
+      @poll.vote_for_3(@poll)
+      @poll.update(poll_params)
+      render :vote, status: :ok
+    else
+      render json: { :error => @poll.errors.full_messages }, status: :bad_request
+    end
+  end
+
+  def vote4
+    @poll = Poll.find(params[:id])
+    if @poll
+      @poll.vote_for_4(@poll)
       @poll.update(poll_params)
       render :vote, status: :ok
     else

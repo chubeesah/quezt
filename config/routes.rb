@@ -9,9 +9,13 @@ Rails.application.routes.draw do
   post 'users/:id/polls', to: 'polls#create', as: 'new_poll'
   get 'users/:id/polls', to: 'polls#index', as: 'polls'
   get 'users/:id/polls/:id', to: 'polls#show', as: 'poll'
-  put 'users/:id/polls/:id', to: 'polls#vote', as: 'vote'
   delete 'users/:id/polls/:id', to: 'polls#destroy', as: 'destroy_poll'
   
+  put 'users/:id/polls/:id/vote1', to: 'polls#vote1', as: 'vote_1'
+  put 'users/:id/polls/:id/vote2', to: 'polls#vote2', as: 'vote_2'
+  put 'users/:id/polls/:id/vote3', to: 'polls#vote3', as: 'vote_3'
+  put 'users/:id/polls/:id/vote4', to: 'polls#vote4', as: 'vote_4'
+
   get 'polls', to: 'polls#nearby_polls', as: 'nearby_polls'
   
   root to: 'home#index'
