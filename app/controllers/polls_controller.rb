@@ -55,7 +55,7 @@ class PollsController < ApplicationController
   end
 
   def index
-    @polls = Poll.all
+    @polls = Poll.order("created_at DESC")
     @radius = @polls.near([params[:latitude], params[:longitude]], 50)
     if @radius
       render :index
