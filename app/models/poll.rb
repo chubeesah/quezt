@@ -7,6 +7,7 @@ class Poll < ActiveRecord::Base
   reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode
 
+  attr_accessor :content_type, :original_filename, :image_data
   before_save :decode_base64_image
 
   def vote_for_1(poll)  

@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   
   has_many :polls
 
+  attr_accessor :content_type, :original_filename, :image_data
   before_save :decode_base64_image
 
   def ensure_authentication_token
