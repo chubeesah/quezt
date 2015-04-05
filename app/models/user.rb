@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   before_save :ensure_authentication_token
 
+  does_not_validate_attachment_file_type :avatar
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, 
                                           :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
@@ -20,10 +21,13 @@ class User < ActiveRecord::Base
     end
   end
 
-  def as_json(opts={})
-    super(only: [:bar_name, :email, :authentication_token])
+  def avatar_url
+    avatar.url(:medium)
   end
-
+  
+  def as_json(opts={})
+    super(only: [:username, :email, :authentication_token], methods: [:avatar_url])
+  end
   private
     
   def generate_authentication_token
