@@ -1,8 +1,10 @@
 class Poll < ActiveRecord::Base
   belongs_to :user
   has_attached_file :photo_post, :styles => { :medium => "300x300>", :thumb => "100x100>" }, 
-                                              :default_url => ("/images/:style/missing.png").to_s
-  validates_attachment_content_type :photo_post, :content_type => /\Aimage\/.*\Z/
+                                              :default_url => "/images/:style/missing.png"
+  validates_attachment :photo_post, :presence => true,
+  :content_type => { :content_type => /\Aimage\/.*\Z/ },
+  :size => { :in => 0..10.kilobytes }
 
   reverse_geocoded_by :latitude, :longitude
   after_validation :reverse_geocode
