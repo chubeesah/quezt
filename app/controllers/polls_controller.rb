@@ -4,7 +4,7 @@ class PollsController < ApplicationController
   def create
     @user = current_user
     @poll = @user.polls.new(poll_params)
-    @poll.create(photo_post: params(:photo_post))
+    @poll.create(photo_post: params[:photo_post]).to_s
     if @poll.save
       render :create, status: :created
     else
