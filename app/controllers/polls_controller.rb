@@ -4,11 +4,10 @@ class PollsController < ApplicationController
   def create
     @user = current_user
     @poll = @user.polls.new(poll_params)
-    @poll.create(photo_post: params[:photo_post]).to_s
     if @poll.save
       render :create, status: :created
     else
-      render json: { :error => "Problem creating poll"}, status: :bad_request
+      render json: { :error => @poll.errors.full_messages }, status: :bad_request
     end
   end
 
@@ -61,7 +60,7 @@ class PollsController < ApplicationController
     if @radius
       render :index
     else
-      render json: { :error => @poll.errors.full_messages }, status: :not_found
+      render json: { :error => @polls.errors.full_messages }, status: :not_found
     end
   end
 
@@ -71,7 +70,7 @@ class PollsController < ApplicationController
     if @poll
       render :show, status: :ok
     else
-      render json: { :error => "No poll with that id" }, status: :not_found
+      render json: { :error => @poll.errors.full_messages }, status: :not_found
     end
   end
 
@@ -81,7 +80,7 @@ class PollsController < ApplicationController
     if @poll.destroy
      render json: { :message => "Poll successfully deleted" }, status: :ok
     else
-      render json: { :error => "Poll was not deleted" }, status: :not_found
+      render json: { :error => @poll.errors.full_messages }, status: :not_found
     end 
   end
 
@@ -91,7 +90,7 @@ class PollsController < ApplicationController
     if @radius
       render :nearby_polls
     else
-      render json: { :error => @poll.errors.full_messages }, status: :not_found
+      render json: { :error => @polls.errors.full_messages }, status: :not_found
     end
   end
 
