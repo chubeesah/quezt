@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150405014803) do
+ActiveRecord::Schema.define(version: 20150408161308) do
 
   create_table "images", force: :cascade do |t|
     t.datetime "created_at",         null: false
@@ -29,12 +29,8 @@ ActiveRecord::Schema.define(version: 20150405014803) do
     t.integer  "vote_2"
     t.integer  "vote_3"
     t.integer  "vote_4"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.string   "photo_post_file_name"
-    t.string   "photo_post_content_type"
-    t.integer  "photo_post_file_size"
-    t.datetime "photo_post_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "answer_1"
     t.string   "answer_2"
     t.string   "answer_3"
@@ -42,6 +38,7 @@ ActiveRecord::Schema.define(version: 20150405014803) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "username"
+    t.string   "photo_post"
   end
 
   create_table "users", force: :cascade do |t|

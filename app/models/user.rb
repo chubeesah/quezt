@@ -4,17 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   before_save :ensure_authentication_token
-
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, 
-                                          :default_url => "/images/:style/missing.png"
-  validates_attachment :avatar, :presence => true,
-  :content_type => { :content_type => /\Aimage\/.*\Z/ },
-  :size => { :in => 0..10.kilobytes }
   
   has_many :polls
-
-  attr_accessor :content_type, :original_filename, :image_data
-  before_save :decode_base64_image
 
   def ensure_authentication_token
     if authentication_token.blank?
